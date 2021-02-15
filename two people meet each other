@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+bool everMeet(int d1, int d2, int v1, int v2) 
+{ 
+    if (d1 < d2 && v1 <= v2) 
+       return false; 
+    if (d1 > d2 && v1 >= v2) 
+       return false;    
+    if (d1 < d2) 
+    { 
+        swap(d1, d2); 
+        swap(v1, v2); 
+    }     
+    return ((d1 - d2) % (v1 - v2) == 0);  
+} 
