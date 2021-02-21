@@ -1,0 +1,36 @@
+bool isBST(node* root)  
+{  
+    static node *prev = NULL;  
+    
+    if (root)  
+    {  
+        if (!isBST(root->left))  
+        return false;  
+   
+        if (prev != NULL &&  
+            root->data <= prev->data)  
+        return false;  
+  
+        prev = root;  
+  
+        return isBST(root->right);  
+    }  
+  
+    return true;  
+}  
+int main()  
+{  
+    node *root = new node(4);  
+    root->left = new node(2);  
+    root->right = new node(5);  
+    root->left->left = new node(1);  
+    root->left->right = new node(3);  
+      
+    if(isBST(root))  
+        cout<<"Is BST";  
+    else
+        cout<<"Not a BST";  
+          
+    return 0;  
+} 
+ 
